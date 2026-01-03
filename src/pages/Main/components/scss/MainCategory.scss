@@ -1,0 +1,58 @@
+.categoryWrap {
+  max-width: 1420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  .categoryAccordList {
+    width: 100%;
+
+    .categoryAccord {
+      display: flex;
+      gap: 3rem;
+      height: 45rem;
+
+      .accord {
+        flex: 1;
+        overflow: hidden;
+        border-radius: 16px;
+        transition: flex 0.4s ease;
+        display: block;
+
+        .accordText {
+          display: none;
+        }
+
+        >img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: filter 0.3s ease;
+        }
+
+        &.active {
+          flex: 3;
+          position: relative;
+
+          .accordText {
+            position: absolute;
+            display: block;
+            font-size: 3.6rem;
+            font-weight: 600;
+            color: #fff;
+            z-index: 10;
+            top: 45%;
+            left: 40%;
+          }
+
+          >img {
+            filter: brightness(70%);
+
+          }
+        }
+
+      }
+    }
+  }
+}

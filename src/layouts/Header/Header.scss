@@ -1,0 +1,69 @@
+.header {
+  height: clamp(64px, 8vw, 96px);
+
+  .headerInner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    .glassbox {
+      border: 1px solid black;
+    }
+
+    .headerInnerLeft {
+      display: flex;
+      justify-content: space-between;
+
+      .headerLeftLogo {
+        aspect-ratio: 1 / 1;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        >img {
+          max-width: 70%;
+          max-height: 70%;
+          object-fit: contain;
+        }
+      }
+
+      .headerLeftMenu {
+
+        .gnbList {
+          display: flex;
+          justify-content: space-between;
+
+          .gnbItem {
+            display: flex;
+            flex-direction: column;
+
+            .gnbTitle {
+              display: flex;
+              align-items: center;
+              font-size: 1.6rem;
+              padding: 1.8rem 2.4rem;
+            }
+
+            .dropdown {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .headerInnerRight {
+
+      .sideBar {
+        display: flex;
+        border: 1px solid black;
+
+        >a {
+          width: 5%;
+
+        }
+      }
+    }
+  }
+}

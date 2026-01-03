@@ -4,7 +4,7 @@ import './scss/MainFragrance.scss';
 
 const MainFragrance = () => {
   return (
-    <div className="pullInner libreWrapBg">
+    <div className="inner libreWrapBg">
       <div className="libreBgImg">
         <span>
           <img src="/public/images/mainLibre1.png" alt="flower1" />
@@ -17,7 +17,7 @@ const MainFragrance = () => {
         </span>
       </div>
 
-      <div className="inner libreWrap">
+      <div className="libreWrap">
         <div className="libreWrapLeft">
           <div className="libreLeftTextBox">
             <span>LIBRE</span>
@@ -35,14 +35,14 @@ const MainFragrance = () => {
               <span>입생로랑 리브르</span>
             </div>
             <div className="libreSub">
-              <span>열정적이면서도 도도한 매력의 카리스마 넘치는 플로럴 향</span>
-              <span>관능적인 오렌지 블라썸 향과 차분한 라벤더 향의 조화</span>
+              <span className='subBlack'>열정적이면서도 도도한 매력의 카리스마 넘치는 플로럴 향</span>
+              <span className='subGrey'>관능적인 오렌지 블라썸 향과 차분한 라벤더 향의 조화</span>
             </div>
           </div>
           <div className="libreRightBottom">
             <Link to="/fragrance" className="libreMoreBtn">
-              <span>More</span>
-              <img src="/public/icon/ArrowRightGold.svg" alt="더보기 아이콘" />
+              <span className='moreText'>More</span>
+              <span className="moreArrow"></span>
             </Link>
           </div>
         </div>

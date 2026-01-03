@@ -1,11 +1,164 @@
 .libreWrapBg {
   position: relative;
+  width: 100%;
 
   .libreBgImg {
     position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+
+    >span {
+      position: absolute;
+    }
+
+    >span:nth-child(1) {
+      top: 10%;
+      right: 0;
+    }
+
+    >span:nth-child(2) {
+      top: 27%;
+      left: 50%;
+    }
+
+    >span:nth-child(3) {
+      bottom: 10%;
+      right: 35%;
+    }
   }
 
   .libreWrap {
     display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .libreWrapLeft {
+      position: relative;
+      width: 70%;
+
+      .libreLeftTextBox {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        >span {
+          position: absolute;
+          font-size: 20rem;
+          font-weight: 700;
+          line-height: 2;
+          color: #F4EFE9;
+        }
+
+        >span:nth-child(1) {
+          top: -10%;
+          left: 5%;
+        }
+
+        >span:nth-child(2) {
+          top: 20%;
+          right: 0%;
+        }
+
+        >span:nth-child(3) {
+          top: 53%;
+          left: 0;
+        }
+      }
+
+      .libreLeftImgBox {
+        z-index: 2;
+        position: relative;
+        margin-left: 12rem;
+      }
+    }
+
+    .libreWrapRight {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3.5rem;
+      width: 25%;
+
+      .libreRightTop {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+
+        .libreTitle {
+          font-size: 3.6rem;
+          font-weight: 600;
+        }
+
+        .libreSub {
+          display: flex;
+          flex-direction: column;
+          gap: 0.8rem;
+          width: 100%;
+
+          .subBlack {
+            font-size: 2rem;
+            font-weight: 500;
+            width: 70%;
+            word-break: keep-all;
+          }
+
+          .subGrey {
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: #959595;
+          }
+        }
+      }
+
+      .libreRightBottom {
+
+        .libreMoreBtn {
+          background-color: transparent;
+          transition: background-color 0.35s ease;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1.8rem 3rem;
+          border: 1px solid #CBB699;
+          width: 60%;
+          border-radius: 3.5rem;
+
+          .moreText {
+            color: #AC8D71;
+            font-size: 2rem;
+          }
+
+          .moreArrow {
+            display: block;
+            width: 3rem;
+            aspect-ratio: 2 / 1;
+            background-image: url('../../../../../public/icon/arrowLongRGold.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+          }
+
+          &:hover {
+            border: 1px solid #CBB699;
+            background-color: #CBB699;
+
+            .moreText {
+              color: #FFF;
+            }
+
+            .moreArrow {
+              display: block;
+              width: 3rem;
+              aspect-ratio: 2 / 1;
+              background-image: url('../../../../../public/icon/arrowLongRWh.svg');
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: contain;
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MENU_DATA } from './headerData';
+import { MENU_DATA } from '../../types/headerData';
 import './Header.scss';
 
 const Header: React.FC = () => {
@@ -44,16 +44,16 @@ const Header: React.FC = () => {
         <div className="headerInnerRight">
           <div className="sideBar">
             <Link to="/store">
-              <img src="/public/icon/map-icon.png" alt="매장찾기" />
+              <img src="/public/icon/mapIconWh.png" alt="매장찾기" />
             </Link>
             <Link to="/mypage">
-              <img src="/public/icon/User-icon.png" alt="마이페이지" />
+              <img src="/public/icon/userIconWh.png" alt="마이페이지" />
             </Link>
             <Link to="/search">
-              <img src="/public/icon/search-icon.png" alt="검색" />
+              <img src="/public/icon/searchIconWh.png" alt="검색" />
             </Link>
             <Link to="/cart">
-              <img src="/public/icon/bag-icon.png" alt="장바구니" />
+              <img src="/public/icon/cartIconWh.png" alt="장바구니" />
             </Link>
           </div>
         </div>

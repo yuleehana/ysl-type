@@ -1,0 +1,130 @@
+/* 공동 scss common */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-size: 10px;
+  font-family: Pretendard;
+  overflow-x: hidden;
+  background-color: #f2f2f2;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input,
+button,
+textarea {
+  border: none;
+  cursor: pointer;
+  background: inherit;
+  font-family: 'Pretendard', sans-serif;
+  outline: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.inner {
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.pullInner {
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+em,
+i,
+address {
+  font-style: normal;
+}
+
+/* TODO 반응형 해상도 */
+
+@mixin respond($res) {
+  @media screen and (max-width: $res) {
+    @content;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .inner {
+    max-width: 1680px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .inner {
+    max-width: 1520px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .inner {
+    /* max-width: * *; */
+  }
+}
+
+@media screen and (max-width: 393px) {
+  .inner {
+    /* max-width: * *; */
+  }
+}
+
+// 스켈레톤 애니메이션
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+$breakpoints: (
+  tablet: 768px,
+  mobile: 480px,
+);
+
+@mixin respond($device) {
+  @media (max-width: map-get($breakpoints, $device)) {
+    @content;
+  }
+}

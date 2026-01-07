@@ -1,4 +1,4 @@
-import type { MainMenu } from './headerTypes';
+import type { MainMenu } from '../types/headerTypes';
 
 export const MENU_DATA: MainMenu[] = [
   {

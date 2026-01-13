@@ -1,5 +1,5 @@
 import React from 'react';
-import MainTitle from '../../../components/MainTitle';
+import MainTitle from '../../../../components/MainTitle';
 import BestItemCardSwiper from './BestItemCardSwiper';
 import BestWrapBG from './BestWrapBG';
 import './scss/MainBestItem.scss';

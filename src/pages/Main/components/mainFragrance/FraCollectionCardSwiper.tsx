@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { FRA_COLL_DATA } from '../../../data/fraCollectionData';
+import { FRA_COLL_DATA } from '../../../../data/fraCollectionData';
 import FraCollectionCard from './FraCollectionCards';
 
 const FraCollectionSwiper = () => {

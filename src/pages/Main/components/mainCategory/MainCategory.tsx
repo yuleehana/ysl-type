@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import MainTitle from '../../../components/MainTitle';
+import MainTitle from '../../../../components/MainTitle';
 import { Link } from 'react-router-dom';
 import './scss/MainCategory.scss';
-import type { CategoryItems } from '../../../types/Category';
+import type { CategoryItems } from '../../../../types/Category';
 
 const CategoryList: CategoryItems[] = [
   {
@@ -46,7 +46,9 @@ const MainCategory: React.FC = () => {
               to={item.path}
               className={`accord ${activeId === item.id ? 'active' : ''}`}
               onMouseEnter={() => setActiveId(item.id)}>
-              <span className={`accordText ${activeId === item.id ? 'active' : ''}`}>{item.text}</span>
+              <span className={`accordText ${activeId === item.id ? 'active' : ''}`}>
+                {item.text}
+              </span>
               <img src={item.img} alt={item.alt} />
             </Link>
           ))}

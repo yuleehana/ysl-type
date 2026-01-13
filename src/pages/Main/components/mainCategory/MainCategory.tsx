@@ -3,6 +3,7 @@ import MainTitle from '../../../../components/MainTitle';
 import { Link } from 'react-router-dom';
 import './scss/MainCategory.scss';
 import type { CategoryItems } from '../../../../types/Category';
+import MainSubTitle from '../../../../components/MainSubTitle';
 
 const CategoryList: CategoryItems[] = [
   {
@@ -33,11 +34,10 @@ const MainCategory: React.FC = () => {
 
   return (
     <div className="inner categoryWrap">
-      <MainTitle
-        mainTitle="CATEGORY"
-        subTitle="대담한 색, 잊지 못할 향, 그리고 깊이 있는 케어로 매 순간 당신의 아름다움을 완성하세요"
-      />
-
+      <div className="categoryTitleWrap">
+        <MainTitle mainTitle="CATEGORY" />
+        <MainSubTitle subTitle="대담한 색, 잊지 못할 향, 그리고 깊이 있는 케어로 매 순간 당신의 아름다움을 완성하세요" />
+      </div>
       <div className="categoryAccordList">
         <div className="categoryAccord">
           {CategoryList.map((item) => (

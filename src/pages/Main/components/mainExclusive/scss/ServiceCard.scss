@@ -1,0 +1,55 @@
+.serviceCard {
+  display: flex;
+  // justify-content: space-between;
+  gap: 5rem;
+  // width: 80%;
+  align-items: center;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 10px 10px 40px 0 rgba(0, 0, 0, 0.06), 2px 2px 0.5px 0 rgba(0, 0, 0, 0.06) inset;
+
+  .cardImgBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    overflow: hidden;
+    // width: 50%;
+
+    >img {
+      width: 100%;
+    }
+  }
+
+  .cardTextBox {
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+    width: 50%;
+
+    .cardTop {
+      font-size: 3.6rem;
+      font-weight: 600;
+      color: #CFA0B1;
+    }
+
+    .cardBottom {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      .cardSubTitle {
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+
+      .cardInfo {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #959595;
+        word-break: keep-all;
+      }
+    }
+  }
+}

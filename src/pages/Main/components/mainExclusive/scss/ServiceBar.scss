@@ -1,0 +1,14 @@
+.serviceBar {
+  display: flex;
+
+  .serviceBarBtn {
+    font-size: 1.6rem;
+    padding: 0 2rem 1rem 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.50);
+    // transition: all 0.3s ease;
+
+    &.active {
+      border-bottom: 2px solid black;
+    }
+  }
+}

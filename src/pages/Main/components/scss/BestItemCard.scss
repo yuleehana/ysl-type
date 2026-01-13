@@ -1,0 +1,51 @@
+.bestItemCard {
+
+  .bestItemCardInner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    .cardInnerTop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .cardItemImgBox {
+        width: 40rem;
+        height: 40rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cardItemShadow {
+        display: block;
+        width: 17.5rem;
+        height: 2.2rem;
+        border-radius: 100%;
+        background-color: rgba(164, 146, 132, 0.40);
+        opacity: 0.5;
+        filter: blur(7.5px);
+      }
+    }
+
+    .cardInnerBottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+
+      .cardItemTitle {
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .cardItemPrice {
+        display: flex;
+        font-size: 1.6rem;
+        font-weight: 400;
+      }
+    }
+  }
+}

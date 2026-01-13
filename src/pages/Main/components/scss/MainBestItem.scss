@@ -1,0 +1,32 @@
+.bestItemWrap {
+  width: 100%;
+  position: relative;
+  min-height: 90rem;
+  display: flex;
+  align-items: center;
+  // height: 100%;
+  overflow: hidden;
+
+  .bestItemBackground {
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+  }
+
+  .bestItemInner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    width: 100%;
+    overflow: visible;
+
+    .bestItemSwiperWrap {
+      display: flex;
+      height: 100%;
+      overflow: visible;
+      // position: inherit;
+    }
+  }
+}

@@ -3,14 +3,18 @@ import MainCategory from './components/MainCategory';
 import MainFragrance from './components/MainFragrance';
 import './MainPage.scss';
 import MainFraCollection from './components/MainFraCollection';
+import MainPullImg from './components/MainPullImg';
+import MainBestItem from './components/MainBestItem';
 
 const MainPage = () => {
   return (
     <div className="pullInner main">
-      <div className="inner main">
+      <div className="main">
         <MainCategory />
         <MainFragrance />
-        <MainFraCollection /> 
+        <MainFraCollection />
+        <MainPullImg />
+        <MainBestItem />
       </div>
     </div>
   );

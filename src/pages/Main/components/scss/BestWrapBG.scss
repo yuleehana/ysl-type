@@ -1,0 +1,41 @@
+.bestItemWrapBg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+  // position: relative;
+  // border: 1px solid red;
+
+  .bestItemBgCircle {
+    position: absolute;
+    display: block;
+    background: rgba(244, 239, 233, 0.30);
+    width: 131.7rem;
+    height: 131.7rem;
+    border-radius: 131.7rem;
+  }
+
+  .bestItemBgSideBar {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: space-between;
+
+    .bgSideBar {
+      border: 1px solid #E3D5C8;
+      background: #F7F4F0;
+      width: 70rem;
+      height: 40rem;
+
+      &.Left {
+        border-radius: 0 200px 200px 0;
+        left: 0;
+      }
+
+      &.Right {
+        border-radius: 200px 0 0 200px;
+        right: 0;
+      }
+    }
+  }
+}

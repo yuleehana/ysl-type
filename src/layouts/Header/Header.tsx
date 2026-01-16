@@ -4,6 +4,12 @@ import { MENU_DATA } from '../../data/headerData';
 import './Header.scss';
 
 const Header: React.FC = () => {
+  const [activeMenu, setActiveMenu] = React.useState<string | null>(null);
+
+  const handleOpen = () => {
+    
+  }
+
   return (
     <header className="header">
       <div className="headerInner inner">
@@ -15,30 +21,38 @@ const Header: React.FC = () => {
           </div>
 
           <div className="headerLeftMenu glassbox">
-            <nav className="gnb">
-              <ul className="gnbList">
+            <nav className={`mainMenu ${activeMenu ? 'open' : ''}`}>
+              <ul className="mainMenuList">
                 {MENU_DATA.map((menu) => (
-                  <li key={menu.id} className="gnbItem">
-                    <button className="gnbTitle">{menu.label}</button>
-
-                    <div className="dropdown">
-                      {menu.columns.map((column, colIndex) => (
-                        <div key={colIndex} className="dropdownColumn">
-                          {column.title && <h4>{column.title}</h4>}
-                          <ul>
-                            {column.items.map((item) => (
-                              <li key={item.href}>
-                                <Link to={item.href}>{item.label}</Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
+                  <li
+                    key={menu.id}
+                    className="mainMenuItem"
+                    onMouseEnter={() => setActiveMenu(menu.id)}>
+                    <button className="mainMenuBtn">{menu.label}</button>
                   </li>
                 ))}
               </ul>
             </nav>
+            <div className="dropdownArea" onMouseLeave={() => setActiveMenu(null)}>
+              {MENU_DATA.map((menu) => (
+                <div
+                  key={menu.id}
+                  className={`dropdownPanel ${activeMenu === menu.id ? 'active' : ''}`}>
+                  {menu.columns.map((column, i) => (
+                    <div key={i} className="dropdownColumn">
+                      {column.title && <span>{column.title}</span>}
+                      <ul>
+                        {column.items.map((item) => (
+                          <li key={item.href}>
+                            <Link to={item.href}>{item.label}</Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <div className="headerInnerRight">

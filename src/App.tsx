@@ -6,6 +6,7 @@ import Makeup from './pages/Category/Makeup/Makeup';
 import Fragrance from './pages/Category/Fragrance/Fragrance';
 import Skincare from './pages/Category/Skincare/Skincare';
 import Header from './layouts/Header/Header';
+import Footer from './layouts/Footer/Footer';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/fragrance" element={<Fragrance />} />
         <Route path="/skincare" element={<Skincare />} />
       </Routes>
+
+      <Footer />
     </div>
   );
 }

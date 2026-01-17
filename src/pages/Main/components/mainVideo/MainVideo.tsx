@@ -1,13 +1,17 @@
 import React from 'react';
 import './scss/MainVideo.scss';
 
-const MainVideo = () => {
+interface mainVideoProps {
+  onClickScroll: () => void;
+}
+
+const MainVideo: React.FC<mainVideoProps> = ({ onClickScroll }) => {
   return (
     <div className="pullInner mainVideoWrap">
       <video src="/public/images/mainVideo.mov" playsInline muted loop autoPlay />
-      <div className="videoBtn">
+      <button className="videoBtn" onClick={onClickScroll}>
         <img src="/public/icon/videoarrow.png" alt="비디오 하단 버튼" />
-      </div>
+      </button>
       <div className="bottomRadius"></div>
     </div>
   );

@@ -1,17 +1,13 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { MENU_DATA } from '../../data/headerData';
 import './Header.scss';
 
-const Header: React.FC = () => {
+const Header = forwardRef<HTMLElement>((props, ref) => {
   const [activeMenu, setActiveMenu] = React.useState<string | null>(null);
 
-  const handleOpen = () => {
-    
-  }
-
   return (
-    <header className="header">
+    <header ref={ref} className="header">
       <div className="headerInner inner">
         <div className="headerInnerLeft">
           <div className="headerLeftLogo glassbox">
@@ -56,7 +52,7 @@ const Header: React.FC = () => {
           </div>
         </div>
         <div className="headerInnerRight">
-          <div className="sideBar">
+          <div className="sideBar glassbox">
             <Link to="/store">
               <img src="/public/icon/mapIconWh.png" alt="매장찾기" />
             </Link>
@@ -74,6 +70,6 @@ const Header: React.FC = () => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;

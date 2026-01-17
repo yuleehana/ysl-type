@@ -34,7 +34,9 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
                     key={menu.id}
                     className="mainMenuItem"
                     onMouseEnter={() => setActiveMenu(menu.id)}>
-                    <button className="mainMenuBtn">{menu.label}</button>
+                    <Link className="mainMenuBtn" to={menu.link}>
+                      {menu.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

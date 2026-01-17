@@ -4,6 +4,7 @@ export const MENU_DATA: MainMenu[] = [
   {
     id: 'promotion',
     label: 'PROMOTION',
+    link: '/promotion',
     columns: [
       {
         title: '선물',
@@ -20,6 +21,7 @@ export const MENU_DATA: MainMenu[] = [
   {
     id: 'fragrance',
     label: 'FRAGRANCE',
+    link: '/fragrance',
     columns: [
       {
         title: '여성향수',
@@ -41,6 +43,7 @@ export const MENU_DATA: MainMenu[] = [
   {
     id: 'makeup',
     label: 'MAKE UP',
+    link: '/makeup',
     columns: [
       {
         title: '페이스',
@@ -72,6 +75,7 @@ export const MENU_DATA: MainMenu[] = [
   {
     id: 'skincare',
     label: 'SKINCARE',
+    link: '/skincare',
     columns: [
       {
         title: '제품 유형별',
@@ -95,6 +99,7 @@ export const MENU_DATA: MainMenu[] = [
   {
     id: 'beautyclub',
     label: 'BEAUTY CLUB',
+    link: '/beautyclub',
     columns: [
       {
         items: [

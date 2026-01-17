@@ -11,5 +11,6 @@ export interface SubMenuColumn {
 export interface MainMenu {
   id: string;
   label: string;
+  link: string;
   columns: SubMenuColumn[];
 }

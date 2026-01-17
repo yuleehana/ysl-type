@@ -2,17 +2,27 @@ import React, { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
 import { MENU_DATA } from '../../data/headerData';
 import './Header.scss';
+import { useHeaderStyle } from '../../context/HeaderStyleContext';
 
-const Header = forwardRef<HTMLElement>((props, ref) => {
+const Header = forwardRef<HTMLElement>((_, ref) => {
   const [activeMenu, setActiveMenu] = React.useState<string | null>(null);
 
+  const { headerStyle } = useHeaderStyle();
+
   return (
-    <header ref={ref} className="header">
+    <header ref={ref} className={`header ${headerStyle === 'main' ? 'main' : 'default'}`}>
       <div className="headerInner inner">
         <div className="headerInnerLeft">
           <div className="headerLeftLogo glassbox">
             <Link to="/">
-              <img src="/public/images/mainLogo.svg" alt="mainlogo" />
+              <img
+                src={
+                  headerStyle === 'main'
+                    ? '/public/images/mainLogo.svg'
+                    : '/public/images/mainLogoBlack.svg'
+                }
+                alt="mainlogo"
+              />
             </Link>
           </div>
 
@@ -52,20 +62,37 @@ const Header = forwardRef<HTMLElement>((props, ref) => {
           </div>
         </div>
         <div className="headerInnerRight">
-          <div className="sideBar glassbox">
-            <Link to="/store">
-              <img src="/public/icon/mapIconWh.png" alt="매장찾기" />
-            </Link>
-            <Link to="/mypage">
-              <img src="/public/icon/userIconWh.png" alt="마이페이지" />
-            </Link>
-            <Link to="/search">
-              <img src="/public/icon/searchIconWh.png" alt="검색" />
-            </Link>
-            <Link to="/cart">
-              <img src="/public/icon/cartIconWh.png" alt="장바구니" />
-            </Link>
-          </div>
+          {headerStyle === 'main' ? (
+            <div className="sideBar glassbox">
+              <Link to="/store">
+                <img src="/public/icon/mapIconWh.png" alt="매장찾기" />
+              </Link>
+              <Link to="/mypage">
+                <img src="/public/icon/userIconWh.png" alt="마이페이지" />
+              </Link>
+              <Link to="/search">
+                <img src="/public/icon/searchIconWh.png" alt="검색" />
+              </Link>
+              <Link to="/cart">
+                <img src="/public/icon/cartIconWh.png" alt="장바구니" />
+              </Link>
+            </div>
+          ) : (
+            <div className="sideBar glassbox">
+              <Link to="/store">
+                <img src="/public/icon/mapIconBlack.svg" alt="매장찾기" />
+              </Link>
+              <Link to="/mypage">
+                <img src="/public/icon/userIconBlack.svg" alt="마이페이지" />
+              </Link>
+              <Link to="/search">
+                <img src="/public/icon/searchIconBlack.svg" alt="검색" />
+              </Link>
+              <Link to="/cart">
+                <img src="/public/icon/cartIconBlack.svg" alt="장바구니" />
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </header>

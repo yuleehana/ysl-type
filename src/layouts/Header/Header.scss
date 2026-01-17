@@ -2,18 +2,14 @@
   position: fixed;
   top: 0;
   width: 100%;
-  // background: rgba(0, 0, 0, 0.5);
-  // backdrop-filter: blur(20px);
-  // transition: height 0.4s ease;
   z-index: 1000;
 
-  .headerInner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // height: 100%;
-    padding-top: 2rem;
-    // position: relative;
+  &.main {
+
+    .headerInner {
+      padding: 2rem 0;
+      color: #fff;
+    }
 
     .glassbox {
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -22,6 +18,19 @@
       border-radius: 5rem;
       -webkit-backdrop-filter: blur(12px);
     }
+  }
+
+  &.default {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+  }
+
+  .headerInner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 0;
+    color: #000;
 
     .headerInnerLeft {
       display: flex;
@@ -46,9 +55,8 @@
       }
 
       .headerLeftMenu {
-        // border-radius: 5rem;
         position: relative;
-        color: #fff;
+        // color: #fff;
 
         .mainMenu {
 
@@ -75,7 +83,7 @@
           .mainMenuList {
             display: flex;
             // justify-content: space-between;
-            gap: 4.8rem;
+            // gap: 4.8rem;
 
             .mainMenuItem {
               display: flex;
@@ -92,7 +100,7 @@
         }
 
         .dropdownArea {
-          display: none;
+          // display: none;
           // display: flex;
           gap: 7rem;
           padding: 0 2.4rem;

@@ -6,6 +6,7 @@ import Makeup from './pages/Category/Makeup/Makeup';
 import Fragrance from './pages/Category/Fragrance/Fragrance';
 import Skincare from './pages/Category/Skincare/Skincare';
 import AppLayout from './layouts/AppLayout';
+import Auth from './pages/Auth/Auth';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<MainPage />} />
+          <Route path="/auth" element={<Auth />} />
           <Route path="/makeup" element={<Makeup />} />
           <Route path="/fragrance" element={<Fragrance />} />
           <Route path="/skincare" element={<Skincare />} />

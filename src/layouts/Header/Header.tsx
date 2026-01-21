@@ -69,7 +69,7 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
               <Link to="/store">
                 <img src="/public/icon/mapIconWh.png" alt="매장찾기" />
               </Link>
-              <Link to="/mypage">
+              <Link to="/auth">
                 <img src="/public/icon/userIconWh.png" alt="마이페이지" />
               </Link>
               <Link to="/search">
@@ -84,7 +84,7 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
               <Link to="/store">
                 <img src="/public/icon/mapIconBlack.svg" alt="매장찾기" />
               </Link>
-              <Link to="/mypage">
+              <Link to="/auth">
                 <img src="/public/icon/userIconBlack.svg" alt="마이페이지" />
               </Link>
               <Link to="/search">

@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footerTop">
           <div className="footerLeft">
             {FOOTER_DATA.map((menu) => (
-              <div className="footerMenuList">
+              <div key={menu.label} className="footerMenuList">
                 <span>{menu.label}</span>
                 <ul key={menu.id} className="footerMenu">
                   {menu.column.map((f) => (

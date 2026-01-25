@@ -22,13 +22,14 @@ const LoginForm = ({ onSignup }: LoginProps) => {
             <span>|</span>
             <span>비밀번호 찾기</span>
             <span>|</span>
-            <span>회원가입</span>
+            {/* <span>회원가입</span> */}
+            <button type='button' onClick={onSignup}>회원가입</button>
           </div>
         </div>
         <div className="loginFormBottom">
           <div className="loginLine">
             <span className="line"></span>
-            <span className='loginLineTitle'>SNS 로그인</span>
+            <span className="loginLineTitle">SNS 로그인</span>
             <span className="line"></span>
           </div>
           <div className="snsLoginWrap">

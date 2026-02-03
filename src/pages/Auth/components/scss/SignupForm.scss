@@ -1,7 +1,7 @@
 .signupSection {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
   width: 70%;
 
   .signupTitleWrap {
@@ -26,12 +26,12 @@
   .signupForm {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 3rem;
 
     .signupInputWrap {
       display: flex;
       flex-direction: column;
-      gap: 1.4rem;
+      gap: 1.2rem;
 
       label {
         display: flex;

@@ -2,33 +2,54 @@ import React, { useState } from 'react';
 import { useAuthStore } from '../../../store/useAuthStore';
 import { FirebaseError } from 'firebase/app';
 import './scss/SignupForm.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface SignupFormProps {
-  onLogin: () => void;
+  onGoToLogin: () => void;
 }
 
-const SignupForm = ({ onLogin }: SignupFormProps) => {
-  const { onMember } = useAuthStore();
+interface SignupForm {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  name: string;
+  phone: string;
+}
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+const SignupForm = ({ onGoToLogin }: SignupFormProps) => {
+  const { onMember } = useAuthStore();
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState<SignupForm>({
+    email: '',
+    password: '',
+    confirmPassword: '',
+    name: '',
+    phone: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const isFormValid =
-    email.trim() !== '' &&
-    password.trim() !== '' &&
-    confirmPassword.trim() !== '' &&
-    name.trim() !== '' &&
-    password === confirmPassword;
+    form.email.trim() !== '' &&
+    form.password.trim() !== '' &&
+    form.confirmPassword.trim() !== '' &&
+    form.name.trim() !== '' &&
+    form.password === form.confirmPassword;
 
   const validateForm = () => {
-    if (!email) {
+    if (!form.email) {
       alert('이메일을 입력해주세요');
       return false;
     }
-    if (!password) {
+    if (!form.password) {
       alert('이메일을 입력해주세요');
       return false;
     }
@@ -41,15 +62,10 @@ const SignupForm = ({ onLogin }: SignupFormProps) => {
     if (!validateForm()) return;
 
     try {
-      await onMember(email, password, name, phone);
+      await onMember(form.email, form.password, form.name, form.phone);
 
-      setEmail('');
-      setPassword('');
-      setName('');
-      setPhone('');
-      setConfirmPassword('');
-
-      onLogin();
+      navigate('/');
+      // onGoToLogin();
     } catch (err: unknown) {
       if (err instanceof FirebaseError) {
         console.error('회원가입 실패:', err.code, err.message);
@@ -67,7 +83,7 @@ const SignupForm = ({ onLogin }: SignupFormProps) => {
   return (
     <section className="signupSection">
       <div className="signupTitleWrap">
-        <span className="signupBackBtn"></span>
+        <span className="signupBackBtn" onClick={onGoToLogin}></span>
         <div className="signupTitle">
           <span>SIGN UP</span>
         </div>
@@ -78,7 +94,15 @@ const SignupForm = ({ onLogin }: SignupFormProps) => {
           <label className="idWrap">
             <span className="inputLabel">아이디</span>
             <div className="idInput">
-              <input type="text" name="name" id="name" placeholder="Name" required value={name} />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Name"
+                required
+                value={form.name}
+                onChange={handleChange}
+              />
               <button>중복확인</button>
             </div>
             <span style={{ fontSize: '1.2rem', color: '#686868' }}>
@@ -92,10 +116,10 @@ const SignupForm = ({ onLogin }: SignupFormProps) => {
               <input
                 type="password"
                 name="password"
-                id="password"
                 required
                 placeholder="Password"
-                value={password}
+                value={form.password}
+                onChange={handleChange}
               />
               <input
                 type="password"
@@ -103,7 +127,8 @@ const SignupForm = ({ onLogin }: SignupFormProps) => {
                 id="confirmPassword"
                 required
                 placeholder="Confirm Password"
-                value={confirmPassword}
+                value={form.confirmPassword}
+                onChange={handleChange}
               />
             </div>
             <span style={{ fontSize: '1.2rem', color: '#686868' }}>
@@ -114,14 +139,25 @@ const SignupForm = ({ onLogin }: SignupFormProps) => {
           <label className="emailWrap">
             <span className="inputLabel">이메일</span>
             <div className="emailInput">
-              <input type="email" name="email" id="email" placeholder="E-mail" value={email} />
+              <input
+                name="email"
+                id="email"
+                placeholder="E-mail"
+                value={form.email}
+                onChange={handleChange}
+              />
             </div>
           </label>
 
           <label className="phoneWrap">
             <span className="inputLabel">전화번호</span>
             <div className="phoneInput">
-              <input type="tel" name="phone" id="phone" placeholder="Phone Number" value={phone} />
+              <input
+                name="phone"
+                placeholder="Phone Number"
+                value={form.phone}
+                onChange={handleChange}
+              />
               <button>인증번호받기</button>
             </div>
           </label>
@@ -129,9 +165,9 @@ const SignupForm = ({ onLogin }: SignupFormProps) => {
 
         <button
           className="signupBtn"
-          form="signupForm"
+          // form="signupForm"
           type="submit"
-          onClick={onLogin}
+          // onClick={onLogin}
           disabled={!isFormValid}>
           가입하기
         </button>

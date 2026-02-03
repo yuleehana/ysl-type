@@ -14,9 +14,9 @@ const Auth = () => {
       <div className="inner authInner">
         <AuthLayout mode={mode}>
           {mode === 'login' ? (
-            <LoginForm onSignup={() => setMode('signup')} />
+            <LoginForm onGoToSignup={() => setMode('signup')} />
           ) : (
-            <SignupForm onLogin={() => setMode('login')} />
+            <SignupForm onGoToLogin={() => setMode('login')} />
           )}
         </AuthLayout>
       </div>

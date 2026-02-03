@@ -32,18 +32,19 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({
         user,
         userData,
+        isLogin: true,
       });
 
       console.log('회원가입 완료');
     } catch (err: unknown) {
       if (err instanceof FirebaseError) {
-        console.error('로그인 실패:', err.code, err.message);
+        console.error('회원가입 실패:', err.code, err.message);
         alert(err.message);
       } else if (err instanceof Error) {
-        console.error('로그인 실패:', err.message);
+        console.error('회원가입 실패:', err.message);
         alert(err.message);
       } else {
-        console.error('로그인 실패: 알 수 없는 에러', err);
+        console.error('회원가입 실패: 알 수 없는 에러', err);
       }
       throw err;
     }
@@ -55,6 +56,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       const user = useCredential.user;
 
       const userDoc = await getDoc(doc(db, 'users', user.uid));
+
+      if (!userDoc.exists) {
+        throw new Error('유저 정보가 존재하지 않습니다.');
+      }
 
       set({
         user,

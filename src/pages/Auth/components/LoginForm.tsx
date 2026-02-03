@@ -1,29 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './scss/LoginForm.scss';
+import { useAuthStore } from '../../../store/useAuthStore';
+import { useNavigate } from 'react-router-dom';
 
 interface LoginProps {
-  onSignup: () => void;
+  onGoToSignup: () => void;
 }
 
-const LoginForm = ({ onSignup }: LoginProps) => {
+const LoginForm = ({ onGoToSignup }: LoginProps) => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const { onLogin } = useAuthStore();
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await onLogin(email, password);
+      navigate('/');
+      setEmail('');
+      setPassword('');
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <section className="loginSection">
       <span className="loginTitle">LOGIN</span>
-      <form className="loginForm">
+      <form className="loginForm" onSubmit={handleLogin}>
         <div className="loginFormTop">
           <div className="loginInputWrap">
-            <input type="email" required placeholder="Name" />
-            <input type="password" required placeholder="Password" />
-            <button onClick={onSignup}>로그인</button>
+            <label>
+              <input
+                className="emailInput"
+                type="email"
+                required
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </label>
+            <label>
+              <input
+                className="passwordInput"
+                type={showPassword ? 'text' : 'password'}
+                required
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span
+                className={`togglePwBtn ${showPassword ? 'active' : ''}`}
+                onClick={() => setShowPassword(!showPassword)}></span>
+            </label>
+            <button type="submit" className="loginBtn">
+              로그인
+            </button>
           </div>
           <div className="findIdPw">
-            {/* Link로 바꾸기 */}
             <span>아이디찾기</span>
             <span>|</span>
             <span>비밀번호 찾기</span>
             <span>|</span>
-            {/* <span>회원가입</span> */}
-            <button type='button' onClick={onSignup}>회원가입</button>
+            <button type="button" onClick={onGoToSignup}>
+              회원가입
+            </button>
           </div>
         </div>
         <div className="loginFormBottom">
